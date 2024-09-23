@@ -17,9 +17,7 @@ goal and assist
 <img width="589" alt="Screenshot 2024-09-23 at 6 57 12 PM" src="https://github.com/user-attachments/assets/4781734c-6e6c-419a-b0a7-3d1a12a66caa">
 
 Project Structure:
-Directory Tree:
-css
-Copy code
+Directory:
 Jay_Liu_IDS706_Week3_Individual/
 ├── .devcontainer/
 │   ├── devcontainer.json
@@ -43,35 +41,39 @@ Jay_Liu_IDS706_Week3_Individual/
 ├── requirements.txt
 ├── test_lib.py
 └── test_main.py
+
 Key Files:
 main.py: The main script that loads the dataset, calls the library functions, and generates visualizations.
 mylib/lib.py: The library file containing all the core functions for loading datasets, generating summary statistics, grouping data, and creating visualizations.
+
 test_lib.py: Tests the functions within lib.py to ensure correctness.
+
 test_main.py: Tests the functionality of the main.py script, verifying that it works as expected.
+
 Makefile: Automates the tasks of installing dependencies, linting, formatting, and running tests.
+
 requirements.txt: Lists the Python packages required for the project, including Pandas, Matplotlib, and testing libraries.
+
 .github/workflows/: Contains CI workflows for linting, testing, formatting, and installation, enabling automated testing and code quality checks on GitHub.
 Installation
+
 To install the required packages, run the following command:
+make install
+
 
 bash
-Copy code
+
 make install
 This will install the dependencies listed in requirements.txt.
 
 Lint
 To lint the code using Ruff, execute:
-
-bash
-Copy code
 make lint
-This project uses Ruff for faster linting, ensuring that code follows Python standards and best practices.
+
+
 
 Test
 To run the tests, execute:
-
-bash
-Copy code
 make test
 This will run tests for both the library functions and the main script using pytest.
  
