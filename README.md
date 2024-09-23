@@ -1,4 +1,4 @@
-[![Test](https://github.com/nogibjj/indi_mini_week3/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/test.yml)
+[![Test](https://github.com/nogibjj/indi_mini_week3/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/test.yml)
 [![Install](https://github.com/nogibjj/indi_mini_week3/actions/workflows/install.yml/badge.svg)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/install.yml)
 [![Format](https://github.com/nogibjj/indi_mini_week3/actions/workflows/format.yml/badge.svg)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/format.yml)
 [![Lint](https://github.com/nogibjj/indi_mini_week3/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/lint.yml)
