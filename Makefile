@@ -27,8 +27,11 @@ generate_and_push:
 	git config --local user.email "jay.liu011016@gmail.com"
 	git config --local user.name "jayliu1016"
 	git add .
-	git commit -m"test"
-	git push
-
+	@if ! git diff --cached --quiet; then \
+		git commit -m "Auto-generated commit"; \
+		git push; \
+	else \
+		echo "No changes to commit"; \
+	fi
 
 all: install lint test format generate_and_push
