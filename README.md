@@ -1,36 +1,8 @@
-## Template for Python projects with RUFF linter
+[![Test](https://github.com/nogibjj/indi_mini_week3/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/test.yml)
+[![Install](https://github.com/nogibjj/indi_mini_week3/actions/workflows/install.yml/badge.svg)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/install.yml)
 
-![1 15_rust_built_python_tools](https://github.com/nogibjj/python-ruff-template/assets/58792/db5f7bda-a977-4c67-acbe-a70fe034fbdf)
+[![Format](https://github.com/nogibjj/indi_mini_week3/actions/workflows/format.yml/badge.svg)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/format.yml)
 
-
-
-1. First thing to do on launch is to open a new shell and verify virtualenv is sourced.
-
-Things included are:
-
-* `Makefile`
-
-* `Pytest`
-
-* `pandas`
-
-* `Ruff`:  
-
-Run `make lint` which runs `ruff check`.  You can find out more info on [Ruff here](https://github.com/astral-sh/ruff).
-
-* `Dockerfile`
-
-* `GitHub copilot`
-
-* `jupyter` and `ipython` 
-
-* A base set of libraries for devops and web
-
-* `githubactions`
-
-## References
-
-![1 1-function-essence-of-programming](https://github.com/nogibjj/python-ruff-template/assets/58792/f7f33cd3-cff5-4014-98ea-09b6a29c7557)
-
-
+[![Lint](https://github.com/nogibjj/indi_mini_week3/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/lint.yml)
+![image](https://github.com/user-attachments/assets/e852ccc6-044b-4eed-9cc5-f94c5775b8af)
 
