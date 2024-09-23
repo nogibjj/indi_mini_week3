@@ -24,8 +24,8 @@ deploy:
 
 generate_and_push:
 	python main.py 
-	git config --local user.email "zhangsu0528@gmail.com"
-	git config --local user.name "zhangsu0528"
+	git config --local user.email "jay.liu011016@gmail.com"
+	git config --local user.name "jayliu1016"
 	git add .
 	git commit -m"test"
 	git push

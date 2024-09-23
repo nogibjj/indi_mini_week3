@@ -1,78 +1,72 @@
-import unittest
-from mylib.lib import (
-    load_dataset,
-    grab_mean,
-    grab_median,
-    grab_max,
-    grab_std,
-    generate_summary_statistics,  # Added the import for generate_summary_statistics
-    group_by,
-    build_log_histogram,
-    create_scatter,
-)
+import pytest
 import os
+import pandas as pd
+from mylib import lib
+
+DATASET_PATH = "player_overview.csv"
 
 
-class TestLibFunctions(unittest.TestCase):
-    def setUp(self):
-        # Example dataset (replace with the correct path if needed)
-        self.dataset_path = "player_overview.csv"
-        self.dataframe = load_dataset(self.dataset_path)
+@pytest.fixture
+def dataset():
 
-    def test_load_dataset(self):
-        # Test that the dataset is loaded correctly
-        self.assertIsNotNone(self.dataframe)
-        self.assertGreater(len(self.dataframe), 0)
-
-    def test_grab_mean(self):
-        # Test grabbing the mean of the "Goals" column
-        mean_goals = grab_mean(self.dataframe, "Goals")
-        self.assertIsInstance(mean_goals, float)
-
-    def test_grab_median(self):
-        # Test grabbing the median of the "Goals" column
-        median_goals = grab_median(self.dataframe, "Goals")
-        self.assertIsInstance(median_goals, float)
-
-    def test_grab_std(self):
-        # Test grabbing the standard deviation of the "Goals" column
-        std_goals = grab_std(self.dataframe, "Goals")
-        self.assertIsInstance(std_goals, float)
-
-    def test_grab_max(self):
-        # Test grabbing the max of the "Goals" column
-        max_goals = grab_max(self.dataframe, "Goals")
-        self.assertIsInstance(max_goals, float)
-
-    def test_generate_summary_statistics(self):
-        # Test generating summary statistics
-        summary_stats = generate_summary_statistics(self.dataframe)
-        self.assertIsNotNone(summary_stats)
-        # Check that the summary contains statistics for numeric columns
-        self.assertIn("Goals_mean", summary_stats.columns)
-        self.assertIn("Goals_median", summary_stats.columns)
-        self.assertIn("Goals_std", summary_stats.columns)
-
-    def test_group_by(self):
-        # Test grouping by a column (e.g., Nationality)
-        nationality_counts = group_by(self.dataframe, "Nationality")
-        self.assertIsNotNone(nationality_counts)
-        self.assertIn("Nationality", self.dataframe.columns)
-
-    def test_build_log_histogram(self):
-        # Test that the histogram is generated and saved
-        output_file = "test_histogram.png"
-        build_log_histogram(self.dataframe, "Goals", output_file)
-        self.assertTrue(os.path.exists(output_file))
-        os.remove(output_file)  # Clean up the test file
-
-    def test_create_scatter(self):
-        # Test that the scatterplot is generated and saved
-        output_file = "test_scatter.png"
-        create_scatter(self.dataframe, ["Goals", "Assists"], output_file)
-        self.assertTrue(os.path.exists(output_file))
-        os.remove(output_file)  # Clean up the test file
+    df = lib.load_dataset(DATASET_PATH)
+    return df
 
 
-if __name__ == "__main__":
-    unittest.main()
+def test_load_dataset():
+
+    df = lib.load_dataset(DATASET_PATH)
+    assert isinstance(
+        df, pd.DataFrame
+    ), "The dataset should be loaded as a Pandas DataFrame"
+    assert not df.empty, "The dataset should not be empty"
+
+
+def test_print_head(dataset):
+
+    head = lib.print_head(dataset, n=5)
+    assert len(head) == 5, "The function should return 5 rows by default"
+    assert isinstance(head, pd.DataFrame), "The output should be a Pandas DataFrame"
+
+
+def test_generate_summary_statistics(dataset):
+
+    summary_stats = lib.generate_summary_statistics(dataset)
+    assert isinstance(
+        summary_stats, pd.DataFrame
+    ), "The output should be a Pandas DataFrame"
+    assert (
+        "count" in summary_stats.index
+    ), "The summary statistics should include a 'count' row"
+
+
+def test_group_by(dataset):
+
+    grouped = lib.group_by(dataset, "Position")
+    assert isinstance(grouped, pd.Series), "The output should be a Pandas Series"
+    assert not grouped.empty, "The grouped result should not be empty"
+
+
+def test_build_log_histogram(dataset):
+
+    output_file = "test_histogram.png"
+    lib.build_log_histogram(dataset, "Goals", output_file)
+    assert os.path.exists(output_file), "The histogram file should be saved"
+    os.remove(output_file)
+
+
+def test_create_scatter(dataset):
+
+    output_file = "test_scatter.png"
+    lib.create_scatter(dataset, "Appearances", "Goals", output_file)
+    assert os.path.exists(output_file), "The scatter plot file should be saved"
+    os.remove(output_file)
+
+
+def test_save_to_markdown(dataset):
+
+    summary_stats = lib.generate_summary_statistics(dataset)
+    output_file = "test_summary.md"
+    lib.save_to_markdown(summary_stats, output_file)
+    assert os.path.exists(output_file), "The markdown file should be saved"
+    os.remove(output_file)
