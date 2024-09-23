@@ -1,23 +1,20 @@
-# DevOps
+
+#devops
 black==22.3.0
-click==8.1.3
+click==8.1.3 
 pytest==7.1.3
 pytest-cov==4.0.0
-# pylint==2.15.3  # Commented as you are using ruff
+#pylint==2.15.3
+#rust based linter
 ruff==0.0.284
 boto3==1.24.87
-
-# Web
+#web
 fastapi==0.85.0
 uvicorn==0.18.3
-
-# Data Science and Visualization
+#install packages
 pandas==2.0.3
-polars==0.13.49  # Make sure to specify the correct version you need
-nbval==0.10.0
-matplotlib==3.7.3
+polars==0.13.49
+matplotlib==3.9.2
+nbval==0.11.0
 tabulate==0.9.0
-
-# Jupyter Environment
-jupyter==1.0.0
-
+jupyter==1.1.1
