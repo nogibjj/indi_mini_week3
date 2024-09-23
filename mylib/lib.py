@@ -1,7 +1,3 @@
-"""
-Library file that lists all the necessary functions for soccer player data analysis using Pandas.
-"""
-
 import pandas as pd
 import matplotlib.pyplot as plt
 
@@ -24,7 +20,9 @@ def group_by(df, column_name):
     return df[column_name].value_counts()
 
 def build_log_histogram(df, column_name, output_file):
-    plt.hist(df[column_name].dropna(), bins=10, log=True, edgecolor='white')
+    plt.hist(
+        df[column_name].dropna(), bins=10, log=True, edgecolor='white'
+    )
     plt.xlabel(column_name)
     plt.ylabel('Frequency (Log Scale)')
     plt.title(f'{column_name} Logarithmic Histogram')
@@ -39,10 +37,10 @@ def create_scatter(df, x_col, y_col, output_file="scatter.png"):
     plt.savefig(output_file)
     plt.show()  # Ensure this is present
 
-
 # Save summary statistics to markdown
 def save_to_markdown(summary_stats, output_file):
     markdown_table = summary_stats.to_markdown()
     with open(output_file, "w", encoding="utf-8") as file:
         file.write("# Summary Statistics\n")
         file.write(markdown_table)
+

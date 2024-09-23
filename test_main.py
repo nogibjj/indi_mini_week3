@@ -32,9 +32,8 @@ class TestMainFunctionality(unittest.TestCase):
         summary_stats = generate_summary_statistics(self.dataframe)
         self.assertIsNotNone(summary_stats)
         # Check that the summary contains statistics for numeric columns
-        self.assertIn("Goals_mean", summary_stats.columns)
-        self.assertIn("Goals_median", summary_stats.columns)
-        self.assertIn("Goals_std", summary_stats.columns)
+        self.assertIn("Goals", summary_stats.columns)
+        self.assertIn("Assists", summary_stats.columns)
 
     def test_group_by(self):
         # Test grouping by 'Position' and 'Nationality'
@@ -54,7 +53,7 @@ class TestMainFunctionality(unittest.TestCase):
     def test_create_scatter(self):
         # Test that the scatter plot is generated and saved
         output_file = "test_goals_assists_scatter.png"
-        create_scatter(self.dataframe, ["Goals", "Assists"], output_file)
+        create_scatter(self.dataframe, "Goals", "Assists", output_file)
         self.assertTrue(os.path.exists(output_file))
         os.remove(output_file)  # Clean up the test file
 

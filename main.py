@@ -1,8 +1,3 @@
-"""
-Main file to apply the functions defined in lib.py.
-This script loads a dataset, applies statistical functions, and generates visualizations for soccer player data.
-"""
-
 from mylib.lib import (
     load_dataset,
     print_head,
@@ -34,10 +29,14 @@ def main():
         print(group_by(dataframe, "Nationality"))
 
         print("\nGenerating and saving a logarithmic histogram for 'Goals':")
-        build_log_histogram(dataframe, "Goals", "goals_log_histogram.png")
+        build_log_histogram(
+            dataframe, "Goals", "goals_log_histogram.png"
+        )
 
         print("\nGenerating and saving a scatter plot for 'Goals' and 'Assists':")
-        create_scatter(dataframe, "Goals", "Assists", "goals_assists_scatter.png")
+        create_scatter(
+            dataframe, "Goals", "Assists", "goals_assists_scatter.png"
+        )
 
         print("\nSaving summary statistics to markdown file:")
         save_to_markdown(summary_stats, "player_summary.md")
