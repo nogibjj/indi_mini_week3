@@ -4,6 +4,8 @@
 [![Lint](https://github.com/nogibjj/indi_mini_week3/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/indi_mini_week3/actions/workflows/lint.yml)
 ![image](https://github.com/user-attachments/assets/e852ccc6-044b-4eed-9cc5-f94c5775b8af)
 Jay Liu Individual Project #1
+Youtube link
+https://youtu.be/M2yzBmBC8VI
 Purpose of the Project
 The purpose of this project is to analyze a dataset related to soccer players, generating summary statistics and visualizations to provide insights into player performance, such as goals, assists, and positions. The project primarily uses Pandas for data manipulation and Matplotlib for visualizations. The continuous integration pipeline is set up using GitHub Actions for automated testing, linting, and formatting.
 
@@ -77,7 +79,5 @@ To run the tests, execute:
 make test
 This will run tests for both the library functions and the main script using pytest.
  
-Youtube Video Link
-[Youtube Link]
 
 
